@@ -20,13 +20,10 @@ import javax.ws.rs.PathParam;
 @Path("/plugins")
 public class PluginsPath {
 
-    @EJB
-    private NameStorageBean nameStorage;
-
     @GET
     @Produces("text/html")
     public String getPlugins() {
-        return "<html><body><h1>Hello "+nameStorage.getName()+"!</h1></body></html>";
+        return "<html><body><h1>Hello "+"!</h1></body></html>";
     }
     
     @GET @Path("{id}")
@@ -75,7 +72,6 @@ public class PluginsPath {
     @Consumes("text/plain")
     @Produces("text/plain")
     public String setName(String content) {
-        nameStorage.setName(content);
         return content;
     }
 }
