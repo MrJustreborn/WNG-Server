@@ -11,9 +11,11 @@ body {
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 1em;
   color: #FFF;
-  max-width:75em;
+  /*max-width:75em;*/
+  min-width:550px;
   margin:1em auto;
  /* background: #233442;*/
+ background:rgba(35,52,66,0.3);
 }
 
 header {
@@ -22,9 +24,12 @@ header {
   background: #580E0E;
   padding: .6em;
   padding-left: 8em;
+  
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-header img {
+.logo {
   position:absolute;
   top:-25px;
   left: -25px;
@@ -47,9 +52,12 @@ nav {
   padding: 3.5em 0 1em 1em;
   margin:.5em;
   z-index:0;
-  background:#BAB37B;
+  /*background:#BAB37B;*/
   border-top-left-radius:.5em;
   border-bottom-left-radius:.5em;
+  
+  margin-right: 0;
+  margin-top: 0;
 }
 
 nav li {
@@ -61,7 +69,7 @@ nav li {
 main {
   margin:.5em 0;
   margin-left: 10em;
-  background: #580E0E;
+  /*background: #580E0E;*/
   padding:.1em .5em;
   min-height:15em;
   color:#BAB58C;
@@ -76,6 +84,7 @@ footer {
   text-align: right;
   font-size:.8em;
   padding:.5em;
+  clear: both;
 }
 
 a {
@@ -123,4 +132,9 @@ th {
 
 footer span {
   display:block;
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
 }

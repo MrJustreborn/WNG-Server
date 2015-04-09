@@ -47,14 +47,6 @@ public class RootPath {
     @GET @Path("{id}")
     @Produces("text/html")
     public String getHome(@PathParam("id") String id) throws IOException {
-        html.reCache();
         return html.gethtml(html.title+" - "+id.toUpperCase(),c);
-    }
-    
-    @GET @Path("/test")
-    @Produces("text/html")
-    public String getHomeTest() throws IOException {
-        html.reCache();
-        return html.gethtmltest();
     }
 }
