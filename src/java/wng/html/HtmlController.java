@@ -17,8 +17,8 @@ public class HtmlController {
     private BufferedReader main, content;
     private String html_main, html_content;
     public String title="[WNG] Wiggles nextGen";
-    private String path;
-    private String path_to_index,path_to_content;
+    private final String path;
+    private final String path_to_index,path_to_content;
 
     public HtmlController() throws FileNotFoundException, IOException {
         URL p = getClass().getProtectionDomain().getCodeSource().getLocation();
