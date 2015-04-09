@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package wng.image;
+
+package wng.html.res;
 
 /**
  *
@@ -19,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/img/*")
-public class ImageServlet extends HttpServlet {
+@WebServlet("/css/*")
+public class CSSServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,11 +27,10 @@ public class ImageServlet extends HttpServlet {
             
             
             String filename = request.getPathInfo().substring(1);
-            File file = new File(path+"Layout/design12/img/", filename);
+            File file = new File(path+"Layout/design12/css/", filename);
             response.setHeader("Content-Type", getServletContext().getMimeType(filename));
             response.setHeader("Content-Length", String.valueOf(file.length()));
             response.setHeader("Content-Disposition", "inline; filename=\"" + filename + "\"");
             Files.copy(file.toPath(), response.getOutputStream());
 	}
-
 }

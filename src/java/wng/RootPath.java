@@ -57,18 +57,4 @@ public class RootPath {
         html.reCache();
         return html.gethtmltest();
     }
-    
-    @GET @Path("/css/{id}")
-    @Produces("text/css")
-    public String getCSS(@PathParam("id") String id) throws IOException {
-        URL p = getClass().getProtectionDomain().getCodeSource().getLocation();
-        String path = p.getPath().substring(0,p.getPath().indexOf("WEB-INF"));
-        BufferedReader t =new BufferedReader(new FileReader(path+"Layout/design12/css/"+id));
-        
-        String str="";
-        String curLine="";
-        while((curLine = t.readLine()) != null)
-            str+=curLine;
-        return str;
-    }
 }
