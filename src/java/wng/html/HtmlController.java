@@ -14,11 +14,13 @@ import javax.ejb.Singleton;
  */
 @Singleton
 public class HtmlController {
-    private BufferedReader main, content;
+    private BufferedReader main, content, test;
     private String html_main, html_content;
     public String title="[WNG] Wiggles nextGen";
     private final String path;
-    private final String path_to_index,path_to_content;
+    private final String path_to_index,path_to_content,path_to_test;
+    
+    private String html_test;
 
     public HtmlController() throws FileNotFoundException, IOException {
         URL p = getClass().getProtectionDomain().getCodeSource().getLocation();
@@ -26,10 +28,16 @@ public class HtmlController {
         
         this.path_to_index = this.path+"Layout/index.html";
         this.path_to_content = this.path+"Layout/content.htm";
+        this.path_to_test = this.path+"Layout/design12/index.html";
         
         this.main = new BufferedReader(new FileReader(this.path_to_index));
         this.content = new BufferedReader(new FileReader(this.path_to_content));
+        this.test = new BufferedReader(new FileReader(this.path_to_test));
         this.cache();
+    }
+    
+    public String gethtmltest(){
+        return this.html_test;
     }
     
     public String gethtml(){
@@ -60,6 +68,7 @@ public class HtmlController {
     public void reCache() throws FileNotFoundException, IOException {
         this.main = new BufferedReader(new FileReader(this.path_to_index));
         this.content = new BufferedReader(new FileReader(this.path_to_content));
+        this.test = new BufferedReader(new FileReader(this.path_to_test));
         this.cache();
     }
     

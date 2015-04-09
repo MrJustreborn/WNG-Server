@@ -50,4 +50,11 @@ public class RootPath {
         html.reCache();
         return html.gethtml(html.title+" - "+id.toUpperCase(),c);
     }
+    
+    @GET @Path("/test")
+    @Produces("text/html")
+    public String getHomeTest() throws IOException {
+        html.reCache();
+        return html.gethtmltest();
+    }
 }
