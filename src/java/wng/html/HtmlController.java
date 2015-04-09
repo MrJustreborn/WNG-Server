@@ -84,5 +84,11 @@ public class HtmlController {
         while((curLine = content.readLine()) != null)
             str+=curLine;
         this.html_content=str;
+        
+        str="";
+        curLine="";
+        while((curLine = test.readLine()) != null)
+            str+=curLine;
+        this.html_test=str;
     }
 }
