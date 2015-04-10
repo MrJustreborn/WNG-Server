@@ -16,23 +16,23 @@ import javax.ejb.Singleton;
 @Singleton
 public class HtmlController {
     private BufferedReader main, content;
-    private String html_main, html_content;
+    private String html_main, html_plugin;
     
     public final String title="[WNG] Wiggles nextGen";
-    public final String template="design12";
+    public final String template="Test";
     
     private final String path;
-    private final String path_to_index,path_to_content;
+    private final String path_to_index,path_to_plugin;
 
     public HtmlController() throws FileNotFoundException, IOException {
         URL p = getClass().getProtectionDomain().getCodeSource().getLocation();
         this.path = p.getPath().substring(0,p.getPath().indexOf("WEB-INF"));
         
         this.path_to_index = this.path+"Layout/"+this.template+"/index.html";
-        this.path_to_content = this.path+"Layout/"+this.template+"/content.htm";
+        this.path_to_plugin = this.path+"Layout/"+this.template+"/content.htm";
         
         this.main = new BufferedReader(new FileReader(this.path_to_index));
-        this.content = new BufferedReader(new FileReader(this.path_to_content));
+        this.content = new BufferedReader(new FileReader(this.path_to_plugin));
         this.cache();
     }
     
@@ -54,7 +54,7 @@ public class HtmlController {
         String str="";
         String cache="";
         for (Content c:content){
-            cache=html_content.replace("{TITLE}", "<a href=/WNG/plugins/"+c.title.replace(" ", "")+">"+c.title+"</a>");
+            cache=html_plugin.replace("{TITLE}", "<a href=/WNG/plugins/"+c.title.replace(" ", "")+">"+c.title+"</a>");
             cache=cache.replace("{CONTENT}", c.content);
             str+=cache;
         }
@@ -63,7 +63,7 @@ public class HtmlController {
     
     public void reCache() throws FileNotFoundException, IOException {
         this.main = new BufferedReader(new FileReader(this.path_to_index));
-        this.content = new BufferedReader(new FileReader(this.path_to_content));
+        this.content = new BufferedReader(new FileReader(this.path_to_plugin));
         this.cache();
     }
     
@@ -78,6 +78,6 @@ public class HtmlController {
         curLine="";
         while((curLine = content.readLine()) != null)
             str+=curLine;
-        this.html_content=str;
+        this.html_plugin=str;
     }
 }
